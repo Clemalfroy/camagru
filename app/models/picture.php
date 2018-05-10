@@ -1,0 +1,45 @@
+<?php
+require_once __DIR__ . "/model.php";
+require_once __DIR__ . "/user.php";
+require_once __DIR__ . "/like.php";
+require_once __DIR__ . "/comment.php";
+
+class Picture extends Model
+{
+    public function get_path()
+    {
+        return $this->file_path;
+    }
+
+    public function get_type()
+    {
+        return $this->type;
+    }
+
+    public function get_likes(PDO $dbh)
+    {
+        return count(Like::where($dbh, "picture_id", $this->id));
+    }
+
+    public function get_comments(PDO $dbh)
+    {
+        return Comment::where($dbh, "picture_id", $this->id);
+    }
+
+    public function get_name()
+    {
+        return $this->name;
+    }
+
+    public function get_id()
+    {
+        return $this->id;
+    }
+
+    public function author(PDO $dbh)
+    {
+        return User::find($dbh, "id", $this->user_id);
+    }
+}
+
+?>
