@@ -56,7 +56,7 @@ abstract class Model
             $sql_query = "UPDATE $table_name SET " . sql_build_query($array_keys_symbols) . " WHERE $table_name.id = $this->id;";
             unset($object_vars["id"]);
         } else {
-            $sql_query = "INSERT INTO $table_name($array_keys) VALUES(" . implode(", ", $array_symbols) . ");";
+            $sql_query = "INSERT INTO $table_name($array_keys)VALUES(" . implode(", ", $array_symbols) . ");";
         }
         $dbh->beginTransaction();
         print($sql_query);

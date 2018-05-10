@@ -1,7 +1,7 @@
 <?php
 $DB_DSN = "sqlite:camagru.db";
-$DB_USER = "tpayet";
-$DB_PASSWORD = "route";
+$DB_USER = "cmalfroy";
+$DB_PASSWORD = "root";
 try {
     $db_connection = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
