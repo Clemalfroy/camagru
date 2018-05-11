@@ -16,6 +16,11 @@ class LoginController extends Controller
         header("Location: /");
     }
 
+    public static function log(PDO $dbh, array $params)
+    {
+        echo View::render(__DIR__."/app/views/login.php");
+    }
+
     public static function logout(PDO $DBH, array $params)
     {
         session_destroy();
