@@ -10,10 +10,12 @@ class LoginController extends Controller
     {
         if (User::login($dbh, $params['username'], $params['password'])) {
             $_SESSION['login'] = $params["username"];
+            unset($_SESSION['message']);
+            header("Location: /");
         } else {
             $_SESSION["message"] = "Login failed, wrong credentials or account not confirmed!";
+            header("Location: /log");
         }
-        header("Location: /");
     }
     public static function logout(PDO $DBH, array $params)
     {

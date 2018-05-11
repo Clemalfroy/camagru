@@ -14,13 +14,13 @@ class UserController extends Controller
         }
         $params["confirmed"] = "1";
         if (User::exists($dbh, $params)) {
-            $_SESSION["message"] = "username or email already exists. please try again";
+            $_SESSION["message"] = "Username or email already exists. please try again";
             echo View::render(__DIR__."/../views/signup.php");
         } else {
             User::create($dbh, $params);
             $confirmation_mail = new AccountConfirmationMail($params["email"], $params["username"]);
             $confirmation_mail->send();
-            $_SESSION["message"] = "a confirmation email has been set to your adress. please confirm";
+            $_SESSION["message"] = "A confirmation email has been set to your adress. please confirm";
             echo View::render(__DIR__."/../views/index.php");
         }        
     }
@@ -31,9 +31,9 @@ class UserController extends Controller
                 $user->set_confirmed(true
                     );
                 $user->save($dbh);
-                $_SESSION["message"] = "your account is confirmed, you can now login";
+                $_SESSION["message"] = "Your account is confirmed, you can now login";
             } else {
-                $_SESSION["message"] = "username not found. please contact someone";
+                $_SESSION["message"] = "Username not found. please contact someone";
             }
             echo View::render(__DIR__."/../views/index.php");
         } else {
@@ -46,7 +46,7 @@ class UserController extends Controller
             $user = User::find($dbh, "password", $params["hash"]);
             $user->set_pwd($params["new_pwd"]);
             $user->save($dbh);
-            $_SESSION["message"] = "your password has been changed, you can now login";
+            $_SESSION["message"] = "Your password has been changed, you can now login";
         }
         header("Location: /");
     }

@@ -20,6 +20,7 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
 } elseif (preg_match('/(\/register)/', $_SERVER["REQUEST_URI"])) {
     UserController::register($dbh, $_POST);
 }else {
+    unset($_SESSION['message']);
     echo View::render(__DIR__ . "/app/views/index.php");
 }
 

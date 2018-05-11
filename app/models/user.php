@@ -36,8 +36,10 @@ class User extends Model
     public static function login(PDO $dbh, $username, $password)
     {
         $user = User::find($dbh, "username", $username);
-        if ($user->get_confirmed()) {
-            return ($user->get_pwd() === hash("sha512", "toto$password"));
+        if ($user) {
+            if ($user->get_confirmed()) {
+                return ($user->get_pwd() === hash("sha512", "toto$password"));
+            }
         }
         return false;
     }

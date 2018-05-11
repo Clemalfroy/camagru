@@ -53,4 +53,12 @@
     </div>
 </section>
 
+<?php if (array_key_exists("message", $_SESSION)) { ?>
+    <section class="section hero has-text-centered is-danger is-bold">
+    <div class="container">
+      <h1 class="title"> <?php echo $_SESSION["message"]; ?> </h1>
+    </div>
+  </section>
+<?php } ?>
+
 <script src="/app/views/js/burger.js"></script>
