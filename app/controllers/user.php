@@ -12,7 +12,7 @@ class UserController extends Controller
         if (array_key_exists("register", $params)) {
             unset($params["register"]);
         }
-        $params["confirmed"] = "1";
+        $params["confirmed"] = "0";
         if (User::exists($dbh, $params)) {
             $_SESSION["message"] = "Username or email already exists. please try again";
             echo View::render(__DIR__."/../views/signup.php");
@@ -42,13 +42,13 @@ class UserController extends Controller
     }
     public static function set_pwd(PDO $dbh, array $params){
         if (array_key_exists("hash", $params) && array_key_exists("new_pwd", $params)) {
-            print_r($params);
             $user = User::find($dbh, "password", $params["hash"]);
             $user->set_pwd($params["new_pwd"]);
             $user->save($dbh);
             $_SESSION["message"] = "Your password has been changed, you can now login";
+
         }
-        header("Location: /");
+        header("Location: /log");
     }
 }
 ?>

@@ -8,6 +8,7 @@ require_once __DIR__ . "/app/views/view.php";
 $dbh = require_once __DIR__ . "/config/database.php";
 
 session_start();
+$_SESSION["couleur"] = "is-danger";
 
 if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     LoginController::login($dbh, $_POST);
@@ -19,7 +20,14 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     echo View::render(__DIR__ . "/app/views/signup.php");
 } elseif (preg_match('/(\/register)/', $_SERVER["REQUEST_URI"])) {
     UserController::register($dbh, $_POST);
-}else {
+} elseif (preg_match('/(\/confirm_account)/', $_SERVER["REQUEST_URI"])) {
+    UserController::confirm_account($dbh, $_GET);
+} elseif (preg_match('/(\/reset_pwd)/', $_SERVER["REQUEST_URI"])) {
+    unset($_SESSION['message']);
+    LoginController::reset_pwd($dbh, $_GET);
+} elseif (preg_match('/(\/set_pwd)/', $_SERVER["REQUEST_URI"])) {
+    UserController::set_pwd($dbh, $_POST);
+} else {
     unset($_SESSION['message']);
     echo View::render(__DIR__ . "/app/views/index.php");
 }

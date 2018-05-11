@@ -23,7 +23,7 @@
         </div>
         <div class="field">
           <p class="control has-icons-left">
-            <input class="input" type="password" placeholder="Password" name="password" required>
+            <input class="input" type="password" placeholder="Password" name="password">
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
@@ -36,11 +36,23 @@
             </a>
           </p>
         </div>
+        <div class="columns">
+        <div class="column">
         <div class="field">
           <p class="control">
-            <input type="submit" class="button is-warning is-inverted" value="Login">
+            <input type="submit" class="button is-warning is-inverted" value="Login" name="submit">
           </p>
         </div>
+        </div>
+        <div column>
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button is-warning is-danger" value="You don't remember you password ?" name="forgotten_pwd">
+          </p>
+        </div>
+        </div>
+        </div>
+        
     </form>
 </div>
 </section>
