@@ -12,10 +12,10 @@ class UserController extends Controller
         if (array_key_exists("register", $params)) {
             unset($params["register"]);
         }
-        $params["confirmed"] = "0";
+        $params["confirmed"] = "1";
         if (User::exists($dbh, $params)) {
             $_SESSION["message"] = "username or email already exists. please try again";
-            echo View::render(__DIR__."/../views/sign_up.php");
+            echo View::render(__DIR__."/../views/signup.php");
         } else {
             User::create($dbh, $params);
             $confirmation_mail = new AccountConfirmationMail($params["email"], $params["username"]);

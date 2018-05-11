@@ -60,7 +60,8 @@ class User extends Model
             if (self::find($dbh, "username", $params["username"])) {
                 return true;
             }
-        } elseif (array_key_exists("email", $params)) {
+        }
+        if (array_key_exists("email", $params)) {
             if (self::find($dbh, "email", $params["email"])) {
                 return true;
             }
