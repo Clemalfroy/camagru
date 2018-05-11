@@ -24,7 +24,7 @@
                             Take a picture
                             </a>
 
-                            <a class="navbar-item">
+                            <a class="navbar-item" href="/parameters">
                                 Parameters
                             </a>
                             <span class="navbar-item">

@@ -10,7 +10,7 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-<section class="section">
+<section class="section hero has-text-centered is-light is-bold">
 <div class="container">
         <form action="/set_pwd" method="post">
         <div class="field">

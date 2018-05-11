@@ -27,6 +27,8 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     LoginController::reset_pwd($dbh, $_GET);
 } elseif (preg_match('/(\/set_pwd)/', $_SERVER["REQUEST_URI"])) {
     UserController::set_pwd($dbh, $_POST);
+} elseif (preg_match('/(\/parameters)/', $_SERVER["REQUEST_URI"])) {
+    echo View::render(__DIR__ . "/app/views/parameters.php");
 } else {
     unset($_SESSION['message']);
     echo View::render(__DIR__ . "/app/views/index.php");
