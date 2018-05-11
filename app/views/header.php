@@ -16,13 +16,14 @@
                 </div>
                 <div id="navbarMenuHeroA" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item is-active">
+                        <a class="navbar-item">
                             Gallery
                         </a>
-                        <a class="navbar-item">
-                            Take a picture
-                        </a>
                         <?php if (array_key_exists("login", $_SESSION)) { ?>
+                            <a class="navbar-item">
+                            Take a picture
+                            </a>
+
                             <a class="navbar-item">
                                 Parameters
                             </a>
@@ -37,7 +38,7 @@
 
                         <?php } else { ?>
                             <span class="navbar-item">
-                        <a class="button is-warning is-inverted" href="/login">
+                        <a class="button is-warning is-inverted" href="/log">
                         <span class="icon">
                           <i class="far fa-dot-circle"></i>
                         </span>

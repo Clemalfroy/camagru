@@ -10,6 +10,13 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-
+  <section class="section hero has-text-centered is-light is-bold">
+    <div class="container">
+      <h1 class="title">Welcome to Camagru !</h1>
+      <h2>
+        A simple site, where you can <strong>create</strong> wondelful pictures, <strong>post</strong> it, and get <strong>likes</strong> and <strong>comments</strong> !
+      </h2>
+    </div>
+  </section>
 
 <?php include __DIR__ . "/footer.php" ?>
