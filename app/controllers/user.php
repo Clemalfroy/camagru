@@ -50,5 +50,44 @@ class UserController extends Controller
         }
         header("Location: /log");
     }
+    public static function new_pwd(PDO $dbh, array $params){
+        if (key_exists("login", $_SESSION)){
+            $user = User::find($dbh, "username", $_SESSION["login"]);
+            $user->set_pwd($params["new_pwd"]);
+            $user->save($dbh);
+            $_SESSION["message"] = "Your password has been changed";
+
+        }
+        else {
+            $_SESSION["message"] = "You are not logged in";
+        }
+        header("Location: /parameters");
+    }
+    public static function new_email(PDO $dbh, array $params){
+        if (key_exists("login", $_SESSION)){
+            $user = User::find($dbh, "username", $_SESSION["login"]);
+            $user->set_email($params["new_email"]);
+            $user->save($dbh);
+            $_SESSION["message"] = "Your email has been changed";
+
+        }
+        else {
+            $_SESSION["message"] = "You are not logged in";
+        }
+        header("Location: /parameters");
+    }
+    public static function new_username(PDO $dbh, array $params){
+        if (key_exists("login", $_SESSION)){
+            $user = User::find($dbh, "username", $_SESSION["login"]);
+            $user->set_username($params["new_username"]);
+            $user->save($dbh);
+            $_SESSION["message"] = "Your username has been changed";
+
+        }
+        else {
+            $_SESSION["message"] = "You are not logged in";
+        }
+        header("Location: /parameters");
+    }
 }
 ?>

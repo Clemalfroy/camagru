@@ -10,16 +10,19 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-<section class="section hero is-centered is-light is-bold">
+<section class="section hero has-text-centered is-light is-bold">
 <div class="container">
 <div class="field">
-    <p class="control">
-        <span class="subtitle">New info:</span>
+    <p class="control has-text-centered">
+        <span class="subtitle">Change your infos:</span>
     </p>
     </div>
-    <div class="field has-addons">
-      <p class="control has-icons-left">
-        <input class="input" type="text" placeholder="New Username" name="username">
+    <br/>
+    <div class="columns is-centered is-desktop">
+    <form action="/new_username" method="post">
+    <div class="field has-addons has-text-centered">
+      <p class="control has-icons-left has-text-centered">
+        <input class="input" type="text" placeholder="New Username" name="new_username">
         <span class="icon is-small is-left">
           <i class="fas fa-user"></i>
         </span>
@@ -28,21 +31,31 @@
         <input type="submit" class="button is-warning is-inverted" value="Send">
       </p>
     </div>
-    <div class="field has-addons">
-        <p class="control has-icons-left has-icons-right">
-        <input class="input" type="email" placeholder="New Email" name="email">
-        <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-        </span>
-        </p>
-        <p class="control">
-        <input type="submit" class="button is-warning is-inverted" value="Send">
-      </p>
+    </form>
     </div>
-    <form action="/set_pwd" method="post">
+    <br/>
+    <div class="columns is-centered is-desktop">
+    <form action="/new_email" method="post">
+        <div class="field has-addons">
+            <p class="control has-icons-left">
+                <input class="input" type="email" placeholder="New Email" name="new_email" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$">
+                <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+            </p>
+            <p class="control">
+                <input type="submit" class="button is-warning is-inverted" value="Send">
+            </p>
+        </div>
+    </form>
+    </div>
+    <br/>
+    </form>
+    <div class="columns is-centered is-desktop">
+    <form action="/new_pwd" method="post">
     <div class="field has-addons">
       <p class="control has-icons-left">
-        <input class="input" type="password" placeholder="New Password" name="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$">
+        <input class="input" type="password" placeholder="New Password" name="new_pwd" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$">
         <span class="icon is-small is-left">
           <i class="fas fa-lock"></i>
         </span>
@@ -52,6 +65,8 @@
       </p>
     </div>
     </form>
+    </div>
+    </div>
 </div>
   </section>
 

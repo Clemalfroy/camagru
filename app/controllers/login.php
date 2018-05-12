@@ -16,6 +16,8 @@ class LoginController extends Controller
             $_SESSION["message"] = "An email to reset your password has been sent";
             header("Location: /log");
         } elseif (User::login($dbh, $params['username'], $params['password'])) {
+            session_destroy();
+            session_start();
             $_SESSION['login'] = $params["username"];
             unset($_SESSION['message']);
             header("Location: /");

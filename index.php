@@ -29,6 +29,12 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     UserController::set_pwd($dbh, $_POST);
 } elseif (preg_match('/(\/parameters)/', $_SERVER["REQUEST_URI"])) {
     echo View::render(__DIR__ . "/app/views/parameters.php");
+} elseif (preg_match('/(\/new_pwd)/', $_SERVER["REQUEST_URI"])) {
+    UserController::new_pwd($dbh, $_POST);
+} elseif (preg_match('/(\/new_username)/', $_SERVER["REQUEST_URI"])) {
+    UserController::new_username($dbh, $_POST);
+} elseif (preg_match('/(\/new_email)/', $_SERVER["REQUEST_URI"])) {
+    UserController::new_email($dbh, $_POST);
 } else {
     unset($_SESSION['message']);
     echo View::render(__DIR__ . "/app/views/index.php");

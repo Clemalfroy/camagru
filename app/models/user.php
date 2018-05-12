@@ -28,6 +28,16 @@ class User extends Model
         $this->password = self::hash_pwd($password);
     }
 
+    public function set_username($username)
+    {
+        $this->username = $username;
+    }
+
+    public function set_email($email)
+    {
+        $this->email = $email;
+    }
+
     public function set_confirmed($value)
     {
         $this->confirmed = $value;
