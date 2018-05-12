@@ -35,6 +35,8 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     UserController::new_username($dbh, $_POST);
 } elseif (preg_match('/(\/new_email)/', $_SERVER["REQUEST_URI"])) {
     UserController::new_email($dbh, $_POST);
+} elseif (preg_match('/(\/picture)/', $_SERVER["REQUEST_URI"])) {
+    echo View::render(__DIR__ . "/app/views/picture.php");
 } else {
     unset($_SESSION['message']);
     echo View::render(__DIR__ . "/app/views/index.php");

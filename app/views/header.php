@@ -20,7 +20,7 @@
                             Gallery
                         </a>
                         <?php if (array_key_exists("login", $_SESSION)) { ?>
-                            <a class="navbar-item">
+                            <a class="navbar-item" href="/picture">
                             Take a picture
                             </a>
 
