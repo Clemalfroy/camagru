@@ -10,24 +10,31 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-    <div id="webcam">
+<section class="section hero has-text-centered is-light is-bold">
+    <div class="container">
+    <div class ="field"id="webcam">
         <video id="video"></video>
+    </div>
+        <div class ="field">
         <canvas id="canvas" style="display: none"></canvas>
-        <button id="startbutton">Prendre une photo</button>
+        </div>
+        <div class ="field">
+        <button class="button is-warning is-inverted" id="startbutton">Take a picture</button>
+        </div>
+    <div class ="field"
         <form action="/save_webcam" method="post">
-            <input id="photo_input" type="hidden" name="data">
-            <input type="submit" value="save picture">
+            <input class="input" id="photo_input" type="hidden" name="data">
+            <input class="button is-warning is-inverted" type="submit" value="Save picture">
         </form>
     </div>
-    <div id="last_pictures" style="background-color: orange;">
-    </div>
-    <div>
+    <div class="field">
         <form enctype="multipart/form-data" method="POST" action="/upload">
-            <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-            <input type="file" name="userfile" accept="image/x-png,image/gif,image/jpeg">
-            <input type="submit" value="upload file"/>
+            <input class="button is-warning is-inverted" type="file" name="userfile" accept="image/x-png,image/gif,image/jpeg">
+            <input class="button is-warning is-inverted" type="submit" value="Upload file"/>
         </form>
     </div>
+    </div>
+</section>
 
 <script src="/app/views/js/webcam.js"></script>
 

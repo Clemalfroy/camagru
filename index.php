@@ -2,6 +2,7 @@
 
 require_once __DIR__."/app/controllers/login.php";
 require_once __DIR__."/app/controllers/user.php";
+require_once __DIR__."/app/controllers/picture.php";
 
 require_once __DIR__ . "/app/views/view.php";
 
@@ -37,6 +38,8 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     UserController::new_email($dbh, $_POST);
 } elseif (preg_match('/(\/picture)/', $_SERVER["REQUEST_URI"])) {
     echo View::render(__DIR__ . "/app/views/picture.php");
+} elseif (preg_match('/(\/save_webcam)/', $_SERVER["REQUEST_URI"])) {
+    PictureController::save_webcam($dbh, $_POST);
 } else {
     unset($_SESSION['message']);
     echo View::render(__DIR__ . "/app/views/index.php");

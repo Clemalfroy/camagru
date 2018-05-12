@@ -8,7 +8,7 @@
         startbutton  = document.querySelector('#startbutton'),
         photo_input  = document.querySelector('#photo_input'),
         params       = new FormData();
-    width = 320,
+    width = 500,
         height = 0;
 
     navigator.getMedia = ( navigator.getUserMedia ||
