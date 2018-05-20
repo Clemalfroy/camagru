@@ -2,8 +2,9 @@
 
     <div class="container">
         <h1 class="title">Gallery:</h1>
-            <?php foreach ($pictures_paths as $img) { ?>
-                <?php $author = $img->author($dbh) ?>
+        <?php foreach ($pictures_paths as $img) { ?>
+            <?php $author = $img->author($dbh) ?>
+            <div class="box has-background-dark">
                 <section class="section hero has-text-centered is-dark  is-bold">
                     <div id=<?= "picture_" . $img->get_id() ?>>
                         <h1 class="subtitle is-success"> <?= $author->username ?> Uploaded: </h1>
@@ -32,9 +33,13 @@
 
                             <?php } ?>
                             <?php $comments = $img->get_comments($dbh) ?>
-                            <?php foreach ($comments as $comment) { ?>
-                                <p><?= $comment->get_author($dbh)->get_username() ?>: <?= $comment->get_text() ?></p>
-                            <?php } ?>
+                            <div class="box has-background-dark has-text-light is-bold"
+                                 style="overflow: auto; height: 100px">
+                                <?php foreach ($comments as $comment) { ?>
+                                    <p><?= $comment->get_author($dbh)->get_username() ?>
+                                        : <?= $comment->get_text() ?></p>
+                                <?php } ?>
+                            </div>
 
                             <form method="post" action="/comment">
                                 <input type="hidden" name="picture_id" value=<?= $img->get_id() ?>>
@@ -52,7 +57,8 @@
                         <?php } ?>
                     </div>
                 </section>
-            <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 
 </section>

@@ -12,7 +12,7 @@
 
 <section class="section hero has-text-centered is-dark is-bold">
     <div class="container">
-        <div id="webcam">
+        <div class="box has-background-dark" id="webcam">
             <div class="columns">
                 <div class="column">
                     <video id="video"></video>
