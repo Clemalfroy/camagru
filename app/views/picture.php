@@ -10,7 +10,7 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-<section class="section hero has-text-centered is-light is-bold">
+<section class="section hero has-text-centered is-dark is-bold">
     <div class="container">
         <div id="webcam">
             <div class="columns">
@@ -22,13 +22,18 @@
                     <img id="photo" src="" alt="Your" width="500">
                 </div>
             </div>
-            <button class="button is-info is-inverted" id="startbutton">Take a picture</button>
+            <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+            <button class="button is-warning" id="startbutton">Take a picture</button>
+                </p>
+                <p class="control">
             <div id="save" style="display: None">
                 <form action="/save_webcam" method="post">
                     <input id="photo_input" type="hidden" name="data">
-                    <input class="button is-success" type="submit" value="Save picture">
+                    <input class="button is-info" type="submit" value="Save picture">
                 </form>
             </div>
+            </p>
         </div>
     </div>
 </section>

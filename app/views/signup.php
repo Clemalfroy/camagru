@@ -10,7 +10,7 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-<section class="section hero has-text-centered is-light is-bold">
+<section class="section hero has-text-centered is-dark is-bold">
 <div class="container">
     <form method="POST" action="/register">
         <div class="field">
@@ -39,7 +39,7 @@
         </div>
         <div class="field">
           <p class="control">
-            <input type="submit" class="button is-warning is-inverted" value="Sign up">
+            <input type="submit" class="button is-warning" value="Sign up">
           </p>
         </div>
     </form>

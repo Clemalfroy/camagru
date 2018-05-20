@@ -10,7 +10,7 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-<section class="section hero has-text-centered is-light is-bold">
+<section class="section hero has-text-centered is-dark is-bold">
 <div class="container">
 <div class="field">
     <p class="control has-text-centered">
@@ -28,7 +28,7 @@
         </span>
       </p>
       <p class="control">
-        <input type="submit" class="button is-warning is-inverted" value="Send">
+        <input type="submit" class="button is-warning" value="Send">
       </p>
     </div>
     </form>
@@ -44,7 +44,7 @@
         </span>
             </p>
             <p class="control">
-                <input type="submit" class="button is-warning is-inverted" value="Send">
+                <input type="submit" class="button is-warning" value="Send">
             </p>
         </div>
     </form>
@@ -61,7 +61,7 @@
         </span>
       </p>
       <p class="control">
-        <input type="submit" class="button is-warning is-inverted" value="Send">
+        <input type="submit" class="button is-warning" value="Send">
       </p>
     </div>
     </form>
