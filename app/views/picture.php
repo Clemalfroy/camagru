@@ -22,11 +22,11 @@
                     <img id="photo" src="" alt="Your" width="500">
                 </div>
             </div>
-            <button id="startbutton">Prendre une photo</button>
+            <button class="button is-info is-inverted" id="startbutton">Take a picture</button>
             <div id="save" style="display: None">
                 <form action="/save_webcam" method="post">
                     <input id="photo_input" type="hidden" name="data">
-                    <input type="submit" value="save picture">
+                    <input class="button is-success" type="submit" value="Save picture">
                 </form>
             </div>
         </div>

@@ -3,6 +3,10 @@
 require_once __DIR__."/app/controllers/login.php";
 require_once __DIR__."/app/controllers/user.php";
 require_once __DIR__."/app/controllers/picture.php";
+require_once __DIR__."/app/controllers/gallery.php";
+require_once __DIR__."/app/controllers/root.php";
+require_once __DIR__."/app/controllers/comment.php";
+require_once __DIR__."/app/controllers/like.php";
 
 require_once __DIR__ . "/app/views/view.php";
 
@@ -40,9 +44,17 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     echo View::render(__DIR__ . "/app/views/picture.php");
 } elseif (preg_match('/(\/save_webcam)/', $_SERVER["REQUEST_URI"])) {
     PictureController::save_webcam($dbh, $_POST);
+} elseif (preg_match('/(\/gallerry)/', $_SERVER["REQUEST_URI"])) {
+    GaleryController::show($dbh, $_POST);
+} elseif (preg_match('/(\/comment)/', $_SERVER["REQUEST_URI"])) {
+    CommentController::create_comment($dbh, $_POST);
+} elseif (preg_match('/(\/like)/', $_SERVER["REQUEST_URI"])) {
+    LikeController::create_like($dbh, $_POST);
+} elseif (preg_match('/(\/delete_picture)/', $_SERVER["REQUEST_URI"])) {
+    PictureController::delete_picture($dbh, $_POST);
 } else {
     unset($_SESSION['message']);
-    echo View::render(__DIR__ . "/app/views/index.php");
+    RootController::show($dbh, $_POST);
 }
 
 

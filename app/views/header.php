@@ -1,6 +1,6 @@
 <section class="hero is-warning is-bold">
     <div class="hero-head">
-        <nav class="navbar">
+        <nav class="navbar ">
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="/">
@@ -16,7 +16,7 @@
                 </div>
                 <div id="navbarMenuHeroA" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="/gallerry">
                             Gallery
                         </a>
                         <?php if (array_key_exists("login", $_SESSION)) { ?>
