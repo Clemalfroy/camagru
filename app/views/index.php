@@ -10,7 +10,7 @@
 
 <?php include __DIR__ . "/header.php" ?>
 
-  <section class="section hero has-text-centered is-light is-bold">
+  <section class="section hero has-text-centered is-dark is-bold">
     <div class="container">
       <h1 class="title">Welcome to Camagru !</h1>
       <h2>

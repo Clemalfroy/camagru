@@ -21,7 +21,9 @@ class UserController extends Controller
             $confirmation_mail = new AccountConfirmationMail($params["email"], $params["username"]);
             $confirmation_mail->send();
             $_SESSION["message"] = "A confirmation email has been set to your adress. please confirm";
-            echo View::render(__DIR__."/../views/index.php");
+            $pictures = Picture::all($dbh);
+            echo View::render(__DIR__."/../views/index.php", array("pictures_paths" => $pictures,
+                "dbh" => $dbh));
         }        
     }
     public static function confirm_account(PDO $dbh, array $params) {
