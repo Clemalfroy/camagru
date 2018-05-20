@@ -52,11 +52,9 @@ class PictureController extends Controller
         }
     }
     public static function delete_picture(PDO $dbh, array $params) {
-        $comment = Comment::find($dbh, "id", $params["img_id"]);
-        $like = Like::find($dbh, "id", $params["img_id"]);
+        $comment = Comment::find($dbh, "picture_id", $params["img_id"]);
+        $like = Like::find($dbh, "picture_id", $params["img_id"]);;
         $picture = Picture::find($dbh, "id", $params["img_id"]);
-        $like->delete($dbh);
-        $comment->delete($dbh);
         $picture->delete($dbh);
         $uri = $_SERVER['HTTP_REFERER'];
         header("Location: $uri");

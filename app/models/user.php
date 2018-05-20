@@ -13,6 +13,11 @@ class User extends Model
         return $this->email;
     }
 
+    public function get_notif()
+    {
+        return $this->notif;
+    }
+
     public function get_confirmed()
     {
         return $this->confirmed;
