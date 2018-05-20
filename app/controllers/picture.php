@@ -33,6 +33,7 @@ class PictureController extends Controller
         }
     }
     public static function save_webcam(PDO $dbh, array $params) {
+        print("test");
         if (array_key_exists("data", $params)) {
             $user              = User::find($dbh, "username", $_SESSION["login"]);
             $data              = $params["data"];

@@ -52,6 +52,8 @@
         canvas.getContext('2d').drawImage(video, 0, 0, width, height);
         var data = canvas.toDataURL('image/png');
 
+        document.getElementById("show").style.display = 'block';
+        document.getElementById("save").style.display = 'block';
         photo.style.display = "visible";
         photo.setAttribute('src', data);
         photo_input.setAttribute('value', data);

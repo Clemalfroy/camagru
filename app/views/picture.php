@@ -12,27 +12,24 @@
 
 <section class="section hero has-text-centered is-light is-bold">
     <div class="container">
-    <div class ="field"id="webcam">
-        <video id="video"></video>
-    </div>
-        <div class ="field">
-        <canvas id="canvas" style="display: none"></canvas>
+        <div id="webcam">
+            <div class="columns">
+                <div class="column">
+                    <video id="video"></video>
+                </div>
+                <div class="column" id="show" style="display: None">
+                    <canvas id="canvas" style="display: none"></canvas>
+                    <img id="photo" src="" alt="Your" width="500">
+                </div>
+            </div>
+            <button id="startbutton">Prendre une photo</button>
+            <div id="save" style="display: None">
+                <form action="/save_webcam" method="post">
+                    <input id="photo_input" type="hidden" name="data">
+                    <input type="submit" value="save picture">
+                </form>
+            </div>
         </div>
-        <div class ="field">
-        <button class="button is-warning is-inverted" id="startbutton">Take a picture</button>
-        </div>
-    <div class ="field"
-        <form action="/save_webcam" method="post">
-            <input class="input" id="photo_input" type="hidden" name="data">
-            <input class="button is-warning is-inverted" type="submit" value="Save picture">
-        </form>
-    </div>
-    <div class="field">
-        <form enctype="multipart/form-data" method="POST" action="/upload">
-            <input class="button is-warning is-inverted" type="file" name="userfile" accept="image/x-png,image/gif,image/jpeg">
-            <input class="button is-warning is-inverted" type="submit" value="Upload file"/>
-        </form>
-    </div>
     </div>
 </section>
 
