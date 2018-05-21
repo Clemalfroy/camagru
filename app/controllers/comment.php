@@ -10,7 +10,10 @@ class CommentController extends Controller
             $user = User::find($dbh, "username", $_SESSION["login"]);
             $owner = User::find($dbh, "id", $params["author_id"]);
             $email = new NotificationMail($owner->get_email());
-            $email->send();
+            if ($owner->get_notif()) {
+                print $owner->get_notif();
+                $email->send();
+            }
             Comment::create($dbh, array(
                 "user_id" => $user->get_id(),
                 "picture_id" => $params["picture_id"],

@@ -33,6 +33,11 @@ class User extends Model
         $this->password = self::hash_pwd($password);
     }
 
+    public function set_notif($notif)
+    {
+        $this->password = $notif;
+    }
+
     public function set_username($username)
     {
         $this->username = $username;

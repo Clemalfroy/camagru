@@ -55,6 +55,12 @@ class PictureController extends Controller
         $comment = Comment::find($dbh, "picture_id", $params["img_id"]);
         $like = Like::find($dbh, "picture_id", $params["img_id"]);;
         $picture = Picture::find($dbh, "id", $params["img_id"]);
+        if ($comment) {
+            $comment->delete($dbh);
+        }
+        if ($like) {
+            $like->delete($dbh);
+        }
         $picture->delete($dbh);
         $uri = $_SERVER['HTTP_REFERER'];
         header("Location: $uri");

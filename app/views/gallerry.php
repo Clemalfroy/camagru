@@ -2,7 +2,7 @@
 
     <div class="container">
         <h1 class="title">Gallery:</h1>
-        <?php foreach ($pictures_paths as $img) { ?>
+        <?php foreach (array_reverse($pictures_paths) as $img) { ?>
             <?php $author = $img->author($dbh) ?>
             <div class="box has-background-dark">
                 <section class="section hero has-text-centered is-dark  is-bold">

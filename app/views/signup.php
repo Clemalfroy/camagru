@@ -38,6 +38,12 @@
           </p>
         </div>
         <div class="field">
+            <label class="checkbox">
+                <input type="checkbox" name="notif">
+                Notification ?
+            </label>
+        </div>
+        <div class="field">
           <p class="control">
             <input type="submit" class="button is-warning" value="Sign up">
           </p>
