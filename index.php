@@ -52,6 +52,8 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     LikeController::create_like($dbh, $_POST);
 } elseif (preg_match('/(\/delete_picture)/', $_SERVER["REQUEST_URI"])) {
     PictureController::delete_picture($dbh, $_POST);
+} elseif (preg_match('/(\/upload)/', $_SERVER["REQUEST_URI"])) {
+    PictureController::upload($dbh, $_POST);
 } else {
     unset($_SESSION['message']);
     RootController::show($dbh, $_POST);

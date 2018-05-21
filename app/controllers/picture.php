@@ -17,15 +17,18 @@ class PictureController extends Controller
                 "file_path" => $uploadfile,
                 "name" => $_FILES['userfile']['name'],
                 "type" =>$_FILES['userfile']['type']));
-            $_SESSION["message"] = "Your picture has been uploaded, congrats";
         } else {
             $_SESSION["message"] = "There was an error uploading your picture (error_code: " . $_FILES["userfile"]["error"] . ")";
         }
-        echo View::render(__DIR__."/../views/index.php");
+        $pictures = Picture::all($dbh);
+        echo View::render(__DIR__."/../views/index.php", array("pictures_paths" => $pictures,
+            "dbh" => $dbh));
     }
     public static function get_image(PDO $dbh, array $params) {
         if (!array_key_exists("img_name", $params)) {
-            header("Location: /");
+            $pictures = Picture::all($dbh);
+            echo View::render(__DIR__."/../views/index.php", array("pictures_paths" => $pictures,
+                "dbh" => $dbh));
         } else {
             $picture = Picture::find($dbh, "name", $params["img_name"]);
             header("Content-type: " . $picture->get_type());
@@ -48,7 +51,9 @@ class PictureController extends Controller
                 "file_path" => $file_path,
                 "name"      => $file_name,
                 "type"      => $type));
-            header("Location: /");
+            $pictures = Picture::all($dbh);
+            echo View::render(__DIR__."/../views/index.php", array("pictures_paths" => $pictures,
+                "dbh" => $dbh));
         }
     }
     public static function delete_picture(PDO $dbh, array $params) {

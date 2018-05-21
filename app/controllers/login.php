@@ -20,7 +20,9 @@ class LoginController extends Controller
             session_start();
             $_SESSION['login'] = $params["username"];
             unset($_SESSION['message']);
-            header("Location: /");
+            $pictures = Picture::all($dbh);
+            echo View::render(__DIR__."/../views/index.php", array("pictures_paths" => $pictures,
+                "dbh" => $dbh));
         } else {
             $_SESSION["message"] = "Login failed, wrong credentials or account not confirmed!";
             header("Location: /log");
@@ -30,14 +32,18 @@ class LoginController extends Controller
     {
         session_destroy();
         session_start();
-        header("Location: /");
+        $pictures = Picture::all($DBH);
+        echo View::render(__DIR__."/../views/index.php", array("pictures_paths" => $pictures,
+            "dbh" => $DBH));
     }
 
     public static function reset_pwd(PDO $DBH, array $params) {
         if (array_key_exists("hash", $params)) {
             echo View::render(__DIR__."/../views/resetpwd.php", array("hash" => $params["hash"]));
         } else {
-            header("Location: /");
+            $pictures = Picture::all(DBH);
+            echo View::render(__DIR__."/../views/index.php", array("pictures_paths" => $pictures,
+                "dbh" => $DBH));
         }
     }
 }

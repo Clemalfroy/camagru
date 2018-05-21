@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" class="has-background-black-ter">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,18 +24,33 @@
             </div>
             <div class="field is-grouped is-grouped-centered">
                 <p class="control">
-            <button class="button is-warning" id="startbutton">Take a picture</button>
+                    <button class="button is-warning" id="startbutton">Take a picture</button>
                 </p>
                 <p class="control">
-            <div id="save" style="display: None">
-                <form action="/save_webcam" method="post">
-                    <input id="photo_input" type="hidden" name="data">
-                    <input class="button is-info" type="submit" value="Save picture">
-                </form>
+                <div id="save" style="display: None">
+                    <form action="/save_webcam" method="post">
+                        <input id="photo_input" type="hidden" name="data">
+                        <input class="button is-info" type="submit" value="Save picture">
+                    </form>
+                </div>
+                </p>
+                <div>
+                    <form enctype="multipart/form-data" method="POST" action="/upload">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000"/>
+                        <div class="file">
+                            <label class="file-label">
+                                <input class="file-input" type="file" name="userfile" accept="image/x-png,image/gif,image/jpeg" onchange="document.forms[1].submit()">
+                                <span class="file-cta">
+                            <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">Choose a file</span> </span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
             </div>
-            </p>
         </div>
-    </div>
 </section>
 
 <script src="/app/views/js/webcam.js"></script>
