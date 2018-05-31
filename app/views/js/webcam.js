@@ -55,6 +55,7 @@
         document.getElementById("show").style.display = 'block';
         document.getElementById("save").style.display = 'block';
         photo.style.display = "visible";
+        console.log(data)
         photo.setAttribute('src', data);
         photo_input.setAttribute('value', data);
     }
