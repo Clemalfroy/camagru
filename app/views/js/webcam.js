@@ -54,10 +54,13 @@
 
         document.getElementById("show").style.display = 'block';
         document.getElementById("save").style.display = 'block';
+        document.getElementById("montagge").style.display = 'block';
+        
         photo.style.display = "visible";
         console.log(data)
         photo.setAttribute('src', data);
         photo_input.setAttribute('value', data);
+        photo_inpute.setAttribute('value', data);
     }
 
     startbutton.addEventListener('click', function(ev){
@@ -66,3 +69,4 @@
     }, false);
 
 })();
+

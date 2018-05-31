@@ -53,24 +53,23 @@
         </div>
 </section>
 <section class="section hero has-text-centered is-dark is-bold">
-    <div class="container">
+<form action="/montage" method="post">
+    <div id ="montagge" class="container" style="display: None">
         <div class="columns">
             <div class="column">
                 <div class="box has-background-dark">
-                <form action="/montage" method="post">
                 <input type="image" name="submit_lunettes" value="lunettes" alt="blue" src="/app/uploads/44444.png" height="150">
-                </form>
                 </div>
             </div>
             <div class="column">
                 <div class="box has-background-dark">
-                    <form action="/montage" method="post">
                     <input type="image" name="submit_dee" value="dee" alt="blue" src="/app/uploads/PNG_transparency_demonstration_1.png" height="150">
-                    </form>
                 </div>
             </div>
+            <input id="photo_inpute" type="hidden" name="raw">
         </div>
     </div>
+    </form>
 </section>
 
 <script src="/app/views/js/webcam.js"></script>

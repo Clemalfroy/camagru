@@ -56,7 +56,7 @@ if (preg_match('/(\/login)/', $_SERVER["REQUEST_URI"])) {
     PictureController::upload($dbh, $_POST);
 } elseif (preg_match('/(\/montage)/', $_SERVER["REQUEST_URI"])) {
     unset($_SESSION['message']);
-    RootController::show($dbh, $_POST);
+    PictureController::montage($dbh, $_POST);
 } else {
     unset($_SESSION['message']);
     RootController::show($dbh, $_POST);

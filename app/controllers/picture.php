@@ -36,7 +36,6 @@ class PictureController extends Controller
         }
     }
     public static function save_webcam(PDO $dbh, array $params) {
-        print("test");
         if (array_key_exists("data", $params)) {
             $user              = User::find($dbh, "username", $_SESSION["login"]);
             $data              = $params["data"];
@@ -69,6 +68,26 @@ class PictureController extends Controller
         $picture->delete($dbh);
         $uri = $_SERVER['HTTP_REFERER'];
         header("Location: $uri");
+    }
+
+    public static function montage(PDO $dbh, array $params) {
+        if (array_key_exists("submit_lunettes", $params)) {
+            $src = imagecreatefrompng(__DIR__."/../uploads/44444.png");
+        } elseif (array_key_exists("submit_dee", $params)) {
+            $src = imagecreatefrompng(__DIR__."/../uploads/PNG_transparency_demonstration_1.png");
+        }
+        if (array_key_exists("raw", $params)) {
+            $data = $params["raw"];
+            list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
+            $data              = base64_decode($data);
+            $file_name = hash("md5", "cmalfroy  ") . time () . ".png";
+            $file_path = __DIR__ . "/../uploads/" . $file_name;
+            file_put_contents($file_path, $data);
+            $dest = imagecreatefrompng($file_path);
+            unlink($file_path);
+        }
+        echo View::render(__DIR__."/../views/picture.php", $params);
     }
 }
 ?>
