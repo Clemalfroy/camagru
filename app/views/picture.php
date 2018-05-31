@@ -17,9 +17,9 @@
                 <div class="column">
                     <video id="video"></video>
                 </div>
-                <div class="column" id="show" style="display: None">
+                    <div class="column" id="show" <?php if (!isset($file_path)) { ?> style="display: None" <?php } ?>>
                     <canvas id="canvas" style="display: none"></canvas>
-                    <img id="photo" src="" alt="Your" width="500">
+                    <img id="photo" src=""  alt="Your" width="500">
                 </div>
             </div>
             <div class="field is-grouped is-grouped-centered">
@@ -27,7 +27,7 @@
                     <button class="button is-warning" id="startbutton">Take a picture</button>
                 </p>
                 <p class="control">
-                <div id="save" style="display: None">
+                <div id="save" <?php if (!isset($file_path)) { ?> style="display: None" <?php } ?>>
                     <form action="/save_webcam" method="post">
                         <input id="photo_input" type="hidden" name="data">
                         <input class="button is-info" type="submit" value="Save picture">

@@ -72,11 +72,14 @@ class PictureController extends Controller
 
     public static function montage(PDO $dbh, array $params) {
         if (array_key_exists("submit_lunettes", $params)) {
-            $src = imagecreatefrompng(__DIR__."/../uploads/44444.png");
+            $dest = imagecreatefrompng(__DIR__."/../uploads/44444.png");
+            $size = getimagesize (__DIR__."/../uploads/44444.png");
         } elseif (array_key_exists("submit_dee", $params)) {
-            $src = imagecreatefrompng(__DIR__."/../uploads/PNG_transparency_demonstration_1.png");
+            $dest = imagecreatefrompng(__DIR__."/../uploads/PNG_transparency_demonstration_1.png");
+            $size = getimagesize (__DIR__."/../uploads/PNG_transparency_demonstration_1.png");
         }
         if (array_key_exists("raw", $params)) {
+            $user              = User::find($dbh, "username", $_SESSION["login"]);
             $data = $params["raw"];
             list($type, $data) = explode(';', $data);
             list(, $data)      = explode(',', $data);
@@ -84,10 +87,19 @@ class PictureController extends Controller
             $file_name = hash("md5", "cmalfroy  ") . time () . ".png";
             $file_path = __DIR__ . "/../uploads/" . $file_name;
             file_put_contents($file_path, $data);
-            $dest = imagecreatefrompng($file_path);
+            $src = imagecreatefrompng($file_path);
             unlink($file_path);
+            imagecopymerge($dest, $src, 0, 0, 0, 0, $size[0], $size[1], 50);
+            imagejpeg($dest, $file_path);
+
+            Picture::create($dbh, array(
+                "user_id"   => $user->get_id(),
+                "file_path" => $file_path,
+                "name"      => $file_name,
+                "type"      => "picture"));
+            $str = base64_encode($file_path);
+            header("Location: /");
         }
-        echo View::render(__DIR__."/../views/picture.php", $params);
     }
 }
 ?>
